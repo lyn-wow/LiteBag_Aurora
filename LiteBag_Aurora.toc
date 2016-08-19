@@ -1,0 +1,8 @@
+## Interface: 70000
+## Author: Lyn
+## Version: 2016.2
+## Title: LiteBag: |cff00ddffAurora|r
+## Notes: More or less Aurora Skin for LiteBag.
+## Dependencies: Aurora, LiteBag
+
+modules/skin.lua
