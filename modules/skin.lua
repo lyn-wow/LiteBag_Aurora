@@ -93,24 +93,23 @@
 		self.sortButton:SetPoint('TOPRIGHT', self, 'TOPRIGHT', -15, -32)	
 	end)
 		
-	hooksecurefunc('LiteBagItemButton_Update', function (button)
+	local LiteBagItemHook = function (button)
 		local slot = button:GetID()
 		local bag  = button:GetParent():GetID()
 		local name = button:GetName()
-		local icon = _G[name]
 		
 		-- background
 		local background = _G[name..'BackgroundTexture']
 		background:SetPoint('TOPLEFT', -1, 1)
 		background:SetPoint('BOTTOMRIGHT', 1, -1)
 		background:SetColorTexture(0, 0, 0, .4)
-		
+
 		-- icon
-		local iconTex = _G[name..'IconTexture']
-		iconTex:SetTexCoord(.08, .92, .08, .92)
+		local icon = _G[name..'IconTexture']
+		icon:SetTexCoord(.08, .92, .08, .92)
 		
 		-- border
-		local border = icon.IconBorder
+		local border = _G[name].IconBorder
 		border:SetTexture(BORDERTEXTURE)
 		border:SetPoint('TOPLEFT', -1, 1)
 		border:SetPoint('BOTTOMRIGHT', 1, -1)			
@@ -133,10 +132,11 @@
 		local quest = _G[name..'IconQuestTexture']
 		quest:SetPoint('TOPLEFT', -1, 1)
 		quest:SetPoint('BOTTOMRIGHT', 1, -1)
-		
-	end)
-	
-	if IsAddOnLoaded'LiteBag' then
-		skinLiteBag('Inventory')
-		skinLiteBag('Bank')
+
 	end
+		
+	hooksecurefunc('LiteBagItemButton_Update', LiteBagItemHook)
+	hooksecurefunc('LiteBagItemButton_UpdateQuality', LiteBagItemHook)
+	
+	skinLiteBag('Inventory')
+	skinLiteBag('Bank')
