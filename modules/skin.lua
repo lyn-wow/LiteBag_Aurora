@@ -54,8 +54,10 @@
 		_G['LiteBag'..name..'TokenFrameBorder']:SetPoint('BOTTOMLEFT', 13, 7)
 		
 		-- token
-		_G['LiteBag'..name..'Token1']:ClearAllPoints()
-		_G['LiteBag'..name..'Token1']:SetPoint('BOTTOMLEFT', 18, 10)
+		if _G['LiteBag'..name..'Token1'] then
+			_G['LiteBag'..name..'Token1']:ClearAllPoints()
+			_G['LiteBag'..name..'Token1']:SetPoint('BOTTOMLEFT', 18, 10)
+		end
 		
 		-- money border
 		F.CreateBD(_G['LiteBag'..name..'MoneyFrameBorder'])
@@ -63,8 +65,10 @@
 		_G['LiteBag'..name..'MoneyFrameBorder']:SetPoint('BOTTOMRIGHT', -13, 7)
 		
 		-- money
-		_G['LiteBag'..name..'MoneyFrame']:ClearAllPoints()
-		_G['LiteBag'..name..'MoneyFrame']:SetPoint('BOTTOMRIGHT', -18, 10)
+		if _G['LiteBag'..name..'MoneyFrame'] then
+			_G['LiteBag'..name..'MoneyFrame']:ClearAllPoints()
+			_G['LiteBag'..name..'MoneyFrame']:SetPoint('BOTTOMRIGHT', -18, 10)
+		end
 
 		-- tabs
 		if name == 'Bank' then
