@@ -77,8 +77,10 @@
 		end
 	
 		-- move bag buttons
-		_G['LiteBag'..name..'BagButton1']:ClearAllPoints()
-		_G['LiteBag'..name..'BagButton1']:SetPoint('TOPLEFT', 15, -31)
+		if _G['LiteBag'..name..'BagButton1'] then
+			_G['LiteBag'..name..'BagButton1']:ClearAllPoints()
+			_G['LiteBag'..name..'BagButton1']:SetPoint('TOPLEFT', 15, -31)
+		end
 		
 		-- skin bag buttons
 		for index = 1, 8 do
